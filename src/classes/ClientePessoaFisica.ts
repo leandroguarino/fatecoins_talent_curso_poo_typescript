@@ -7,4 +7,16 @@ export class ClientePessoaFisica extends Cliente{
         super()
         this.estadoCivil = ""
     }
+
+    public setEstadoCivil(estadoCivil: string){
+        if (estadoCivil?.trim() != ""){
+            this.estadoCivil = estadoCivil
+        }else{
+            throw Error("Estado civil inválido")
+        }
+    }
+
+    public getEstadoCivil(): string{
+        return this.estadoCivil
+    }
 }

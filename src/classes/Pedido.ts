@@ -37,4 +37,8 @@ export class Pedido{
     public getCliente(){
         return this.cliente
     }
+
+    public addProduto(produto: Produto){
+        this.produtos.push(produto)
+    }    
 }
