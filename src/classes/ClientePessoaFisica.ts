@@ -19,4 +19,12 @@ export class ClientePessoaFisica extends Cliente{
     public getEstadoCivil(): string{
         return this.estadoCivil
     }
+
+    public setNome(novoNome: string){
+        if (novoNome.indexOf(" ") >= 0){
+            this.nome = novoNome
+        }else{
+            throw Error("Não foi possível setar o nome")
+        }
+    }
 }

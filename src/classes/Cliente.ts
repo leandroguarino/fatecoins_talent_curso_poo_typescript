@@ -1,7 +1,7 @@
 import type { Pedido } from "./Pedido.js"
 
 export class Cliente{
-    private nome: string
+    protected nome: string
     private codigo: number
     private pedidos: Pedido[]
 
@@ -11,13 +11,7 @@ export class Cliente{
         this.pedidos = []
     }
 
-    public setNome(novoNome: string){
-        if (novoNome.indexOf(" ") >= 0){
-            this.nome = novoNome
-        }else{
-            throw Error("Não foi possível setar o nome")
-        }
-    }
+    public setNome(novoNome: string){}
 
     public getNome(): string{
         return this.nome

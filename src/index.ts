@@ -1,5 +1,6 @@
 import { Cliente } from "./classes/Cliente.js";
 import { ClientePessoaFisica } from "./classes/ClientePessoaFisica.js";
+import { ClientePessoaJuridica } from "./classes/ClientePessoaJuridica.js";
 import { Pedido } from "./classes/Pedido.js";
 import { Produto } from "./classes/Produto.js";
 
@@ -28,3 +29,7 @@ pedido1.addProduto(produto1)
 produto1.addPedido(pedido1)
 
 console.log(pedido1)
+
+const clientePj = new ClientePessoaJuridica()
+clientePj.setNome("EMPRESA TESTE LTDA")
+console.log(clientePj)

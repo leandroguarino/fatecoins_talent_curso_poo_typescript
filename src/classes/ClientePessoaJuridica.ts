@@ -7,4 +7,12 @@ export class ClientePessoaJuridica extends Cliente{
         super()
         this.cnpj = ""
     }
+
+    public setNome(novoNome: string){
+        if (novoNome.toUpperCase().indexOf("LTDA") >= 0){
+            this.nome = novoNome
+        }else{
+            throw Error("Nome inválido para a empresa")
+        }
+    }
 }
