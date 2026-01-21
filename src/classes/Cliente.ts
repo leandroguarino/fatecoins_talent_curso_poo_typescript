@@ -1,35 +1,25 @@
 import type { Pedido } from "./Pedido.js"
 
-export class Cliente{
-    protected nome: string
-    private codigo: number
-    private pedidos: Pedido[]
+export abstract class Cliente{
+    protected nome: string = ""
+    protected codigo: number = 0
+    protected pedidos: Pedido[] = []
 
-    constructor(){
-        this.codigo = 0        
-        this.nome = ""
-        this.pedidos = []
-    }
-
-    public setNome(novoNome: string){}
+    public abstract setNome(novoNome: string): void;
 
     public getNome(): string{
         return this.nome
     }
 
-    public getCodigo(): number{
+    public setCodigo(novoCodigo: number): void{
+        this.codigo = novoCodigo
+    }
+
+    public getCodigo(): number {
         return this.codigo
     }
 
-    public setCodigo(novoCodigo: number){
-        if (novoCodigo > 0){
-            this.codigo = novoCodigo
-        }else{
-            throw Error("Código inválido")
-        }
-    }
-
-    public addPedido(pedido: Pedido){
+    public addPedido(pedido: Pedido): void {
         this.pedidos.push(pedido)
     }
 }

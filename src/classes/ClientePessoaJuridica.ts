@@ -1,4 +1,5 @@
 import { Cliente } from "./Cliente.js"
+import type { Pedido } from "./Pedido.js"
 
 export class ClientePessoaJuridica extends Cliente{
     private cnpj: string
