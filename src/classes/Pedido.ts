@@ -1,10 +1,11 @@
 import type { Cliente } from "./Cliente.js"
+import type { ClientePessoaFisica } from "./ClientePessoaFisica.js"
 import type { Produto } from "./Produto.js"
 
-export class Pedido{
+export class Pedido<TIPO extends Cliente>{
     private codigo: number
     private dataHora: Date
-    private cliente: Cliente | null
+    private cliente: TIPO | null
     private produtos: Produto[]
     
     constructor(){
@@ -30,7 +31,7 @@ export class Pedido{
         return this.dataHora
     }
 
-    public setCliente(novoCliente: Cliente){
+    public setCliente(novoCliente: TIPO){
         this.cliente = novoCliente
     }
 

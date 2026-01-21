@@ -1,9 +1,11 @@
+import type { ClientePessoaFisica } from "./ClientePessoaFisica.js"
+import type { ClientePessoaJuridica } from "./ClientePessoaJuridica.js"
 import type { Pedido } from "./Pedido.js"
 
 export abstract class Cliente{
     protected nome: string = ""
     protected codigo: number = 0
-    protected pedidos: Pedido[] = []
+    protected pedidos: Pedido<Cliente>[] = []
 
     public abstract setNome(novoNome: string): void;
 
@@ -19,7 +21,7 @@ export abstract class Cliente{
         return this.codigo
     }
 
-    public addPedido(pedido: Pedido): void {
+    public addPedido(pedido: Pedido<Cliente>): void {
         this.pedidos.push(pedido)
     }
 }

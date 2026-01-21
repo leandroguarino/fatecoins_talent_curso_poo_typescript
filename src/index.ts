@@ -1,6 +1,7 @@
 import { Cliente } from "./classes/Cliente.js";
 import { ClientePessoaFisica } from "./classes/ClientePessoaFisica.js";
 import { ClientePessoaJuridica } from "./classes/ClientePessoaJuridica.js";
+import { ClienteVip } from "./classes/ClienteVip.js";
 import { Pedido } from "./classes/Pedido.js";
 import { Produto } from "./classes/Produto.js";
 
@@ -16,7 +17,7 @@ produto1.setNome("Café expresso Pequeno")
 produto1.setPreco(4.00)
 
 //cria um objeto da classe Pedido
-const pedido1 = new Pedido()
+const pedido1 = new Pedido<ClientePessoaFisica>()
 pedido1.setCodigo(1)
 pedido1.setDataHora(new Date())
 //vinculado o cliente ao pedido
@@ -33,3 +34,10 @@ console.log(pedido1)
 const clientePj = new ClientePessoaJuridica()
 clientePj.setNome("EMPRESA TESTE LTDA")
 console.log(clientePj)
+
+//--------------------------------------------
+const clienteVip = new ClienteVip()
+clienteVip.setNome("Juca Silva")
+
+const pedido2 = new Pedido<ClienteVip>()
+pedido2.setCliente(clienteVip)
