@@ -1,10 +1,12 @@
+import type { IProduto } from "../interfaces/IProduto.js"
+import type { Cliente } from "./Cliente.js"
 import type { Pedido } from "./Pedido.js"
 
-export class Produto{
+export class Produto implements IProduto{
     private codigo: number
     private nome: string
     private preco: number
-    private pedidos: Pedido[]
+    private pedidos: Pedido<Cliente>[]
 
     constructor(){
         this.codigo = 0
@@ -41,8 +43,12 @@ export class Produto{
         }
     }
 
-    public addPedido(pedido: Pedido){
+    public addPedido(pedido: Pedido<Cliente>){
         this.pedidos.push(pedido)
+    }
+
+    public calcularImposto(valor: number): number {
+        return valor * 0.15
     }
 
 }
